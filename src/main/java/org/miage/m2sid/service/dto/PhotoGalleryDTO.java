@@ -31,6 +31,7 @@ public class PhotoGalleryDTO implements Serializable {
     public PhotoGalleryDTO(){
 	}
     
+    
 	public Long getId() {
 		return id;
 	}
