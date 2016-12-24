@@ -14,4 +14,5 @@ public interface PhotoGalleryMapper {
     PhotoGallery photoGalleryDTOToPhotoGallery(PhotoGalleryDTO photoGalleryDTO);
     List<PhotoGalleryDTO> photoGallerysToPhotoGalleryDTOs(List<PhotoGallery> photoGallerys);
     List<PhotoGallery> photoGalleryDTOsToPhotoGallery(List<PhotoGalleryDTO> photoGalleryDTOs); 
+    
 }
