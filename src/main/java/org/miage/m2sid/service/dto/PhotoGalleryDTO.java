@@ -11,11 +11,11 @@ import org.miage.m2sid.domain.PhotoGallery;
  * A DTO for the Livre entity.
  */
 public class PhotoGalleryDTO implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	private String pseudo;
+	private Float longitude;
+	private Float latitude;
+	private String image;
 
 	
     public PhotoGalleryDTO(PhotoGallery dto) {
@@ -59,36 +59,6 @@ public class PhotoGalleryDTO implements Serializable {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	private String pseudo;
-
-	private Float longitude;
-
-	private Float latitude;
-
-	private String image;
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-
-		PhotoGalleryDTO livreDTO = (PhotoGalleryDTO) o;
-
-		if (!Objects.equals(id, livreDTO.id))
-			return false;
-
-		return true;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hashCode(id);
 	}
 
 }
