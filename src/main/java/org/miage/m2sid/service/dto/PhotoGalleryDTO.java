@@ -19,7 +19,6 @@ public class PhotoGalleryDTO implements Serializable {
 
 	
     public PhotoGalleryDTO(PhotoGallery dto) {
-		this.id=dto.getId();
 		this.image=dto.getImage();
 		this.latitude=dto.getLatitude();
 		this.longitude=dto.getLongitude();
