@@ -2,8 +2,6 @@ package org.miage.m2sid.service.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
-
-import org.hibernate.type.BlobType;
 import org.miage.m2sid.domain.PhotoGallery;
 
 
@@ -64,11 +62,11 @@ public class PhotoGalleryDTO implements Serializable {
 		this.latitude = latitude;
 	}
 
-	public BlobType getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(BlobType image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
@@ -80,7 +78,7 @@ public class PhotoGalleryDTO implements Serializable {
 
 	private Float latitude;
 
-	private BlobType image;
+	private String image;
 
 	@Override
 	public boolean equals(Object o) {

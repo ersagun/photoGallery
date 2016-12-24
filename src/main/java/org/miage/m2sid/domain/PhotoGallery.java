@@ -1,6 +1,5 @@
 package org.miage.m2sid.domain;
 
-import org.hibernate.type.BlobType;
 import org.miage.m2sid.service.dto.PhotoGalleryDTO;
 
 import javax.persistence.*;
@@ -30,7 +29,7 @@ public class PhotoGallery implements Serializable {
     private Float latitude;
     
     @Column(name = "image")
-    private BlobType image;
+    private String image;
     
     public PhotoGallery(PhotoGalleryDTO dto) {
 		this.id=dto.getId();
@@ -97,11 +96,11 @@ public class PhotoGallery implements Serializable {
 		this.latitude = latitude;
 	}
 
-	public BlobType getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(BlobType image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
