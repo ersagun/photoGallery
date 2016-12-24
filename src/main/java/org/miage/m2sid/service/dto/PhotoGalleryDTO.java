@@ -28,6 +28,9 @@ public class PhotoGalleryDTO implements Serializable {
 		this.pseudo=dto.getPseudo();
 	}
 	
+    public PhotoGalleryDTO(){
+	}
+    
 	public Long getId() {
 		return id;
 	}
