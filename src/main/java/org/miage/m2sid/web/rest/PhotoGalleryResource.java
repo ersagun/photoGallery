@@ -60,14 +60,15 @@ public class PhotoGalleryResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PhotoGalleryDTO> createPhotoGallery(@RequestBody PhotoGalleryDTO photoGalleryDTO) throws URISyntaxException {
         log.debug("REST request to save photoGallery : {}", photoGalleryDTO);
-        if (photoGalleryDTO.getId() != null) {
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("photoGallery", "idexists", "A new photoGallery cannot already have an ID")).body(null);
+        if (photoGalleryDTO.getPseudo() != null || photoGalleryDTO.getImage() != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("photoGallery", "image_pseudo", "image and pseudo required")).body(null);
         }
         PhotoGallery photoGallery = new PhotoGallery(photoGalleryDTO);
         photoGallery = PhotoGalleryRepository.save(photoGallery);
         
-        return ResponseEntity.created(new URI("/api/photoGallery/" + photoGalleryDTO.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert("photoGallery", photoGalleryDTO.getId().toString()))
+        
+        return ResponseEntity.created(new URI("/api/photoGallery/" + photoGallery.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("photoGallery", photoGallery.getId().toString()))
             .body(photoGalleryDTO);
     }
 
@@ -85,13 +86,13 @@ public class PhotoGalleryResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PhotoGalleryDTO> updateLivre(@RequestBody PhotoGalleryDTO photoGalleryDTO) throws URISyntaxException {
         log.debug("REST request to update Livre : {}", photoGalleryDTO);
-        if (photoGalleryDTO.getId() == null) {
+        if (photoGalleryDTO.getPseudo() == null || photoGalleryDTO.getImage() == null) {
             return createPhotoGallery(photoGalleryDTO);
         }
         PhotoGallery photoGallery = new PhotoGallery(photoGalleryDTO);
         photoGallery = PhotoGalleryRepository.save(photoGallery);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("photoGallery", photoGalleryDTO.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert("photoGallery", photoGallery.getId().toString()))
             .body(photoGalleryDTO);
     }
 

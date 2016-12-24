@@ -29,14 +29,6 @@ public class PhotoGalleryDTO implements Serializable {
 	}
     
     
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getPseudo() {
 		return pseudo;
 	}
@@ -68,8 +60,6 @@ public class PhotoGalleryDTO implements Serializable {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
-	private Long id;
 
 	private String pseudo;
 

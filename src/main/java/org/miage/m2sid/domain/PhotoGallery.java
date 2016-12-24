@@ -32,7 +32,6 @@ public class PhotoGallery implements Serializable {
     private String image;
     
     public PhotoGallery(PhotoGalleryDTO dto) {
-		this.id=dto.getId();
 		this.image=dto.getImage();
 		this.latitude=dto.getLatitude();
 		this.longitude=dto.getLongitude();
