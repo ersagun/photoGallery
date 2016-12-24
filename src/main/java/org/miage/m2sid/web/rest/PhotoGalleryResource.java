@@ -60,7 +60,7 @@ public class PhotoGalleryResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PhotoGalleryDTO> createPhotoGallery(@RequestBody PhotoGalleryDTO photoGalleryDTO) throws URISyntaxException {
         log.debug("REST request to save photoGallery : {}", photoGalleryDTO);
-        if (photoGalleryDTO.getPseudo() != null || photoGalleryDTO.getImage() != null) {
+        if (photoGalleryDTO.getPseudo() == null || photoGalleryDTO.getImage() == null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("photoGallery", "image_pseudo", "image and pseudo required")).body(null);
         }
         PhotoGallery photoGallery = new PhotoGallery(photoGalleryDTO);
