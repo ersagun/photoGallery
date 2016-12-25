@@ -12,6 +12,19 @@ import org.miage.m2sid.domain.PhotoGallery;
  */
 public class PhotoGalleryDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private Long id;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	private String pseudo;
 	private Float longitude;
 	private Float latitude;

@@ -115,7 +115,9 @@ public class PhotoGalleryResource {
        
         List<PhotoGalleryDTO> lph=new ArrayList<PhotoGalleryDTO>();
         for(PhotoGallery pg: page){
-        	lph.add(new PhotoGalleryDTO(pg));
+        	PhotoGalleryDTO pgDTO = new PhotoGalleryDTO(pg);
+        	pgDTO.setId(pg.getId());
+        	lph.add(pgDTO);
         }
         
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/photoGallery");
