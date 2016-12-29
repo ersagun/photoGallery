@@ -23,7 +23,7 @@ class App extends Component {
 			        cache: false,
 			      
 			        success: function(result) {
-			          th.setState({photos: result}); // Notice this
+			          th.setState({photos: result});
 			        },
 			        error: function(xhr, status, err) {
 			          console.error(this.props.source, status, err.toString());
@@ -58,6 +58,7 @@ class App extends Component {
 		  render() {
 			    return (
 			    		<div className="row">
+			    		
 			        {this.state.photos.map(function(photo) {
 			        	photo.image="data:image/jpeg;base64,"+photo.image;
 			          return (

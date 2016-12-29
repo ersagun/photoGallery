@@ -1,5 +1,6 @@
 package org.miage.m2sid.domain;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.miage.m2sid.service.dto.PhotoGalleryDTO;
 
 import javax.persistence.*;
@@ -29,10 +30,10 @@ public class PhotoGallery implements Serializable {
     private Float latitude;
     
     @Column(name = "image")
-    private String image;
+    private byte[] image;
     
     public PhotoGallery(PhotoGalleryDTO dto) {
-		this.image=dto.getImage();
+		this.image=Base64.encodeBase64(dto.getImage().getBytes());
 		this.latitude=dto.getLatitude();
 		this.longitude=dto.getLongitude();
 		this.pseudo=dto.getPseudo();
@@ -95,11 +96,11 @@ public class PhotoGallery implements Serializable {
 		this.latitude = latitude;
 	}
 
-	public String getImage() {
+	public byte[] getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 

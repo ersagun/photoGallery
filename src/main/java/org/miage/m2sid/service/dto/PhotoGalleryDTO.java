@@ -2,6 +2,8 @@ package org.miage.m2sid.service.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
+
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.miage.m2sid.domain.PhotoGallery;
 
 
@@ -32,7 +34,7 @@ public class PhotoGalleryDTO implements Serializable {
 
 	
     public PhotoGalleryDTO(PhotoGallery dto) {
-		this.image=dto.getImage();
+		this.image=new String(Base64.decodeBase64(dto.getImage()));
 		this.latitude=dto.getLatitude();
 		this.longitude=dto.getLongitude();
 		this.pseudo=dto.getPseudo();
