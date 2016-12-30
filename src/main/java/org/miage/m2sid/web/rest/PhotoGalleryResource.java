@@ -56,6 +56,7 @@ public class PhotoGalleryResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new livreDTO, or with status 400 (Bad Request) if the livre has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+    @CrossOrigin
     @RequestMapping(value = "/photoGallery",
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
