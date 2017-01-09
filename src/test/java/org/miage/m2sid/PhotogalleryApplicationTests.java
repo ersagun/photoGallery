@@ -16,7 +16,8 @@ public class PhotogalleryApplicationTests {
 
 	  @Inject
 	    private PhotoGalleryRepository PhotoGalleryRepository;
-	
+
+	/**
 	@Test
 	public void insertImage() {
 		PhotoGalleryDTO pgdto=new PhotoGalleryDTO();
@@ -27,5 +28,6 @@ public class PhotogalleryApplicationTests {
 		PhotoGallery photoGallery = new PhotoGallery(pgdto);
 	        photoGallery = PhotoGalleryRepository.save(photoGallery);
 	}
+	**/
 
 }
