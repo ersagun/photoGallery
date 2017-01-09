@@ -34,7 +34,8 @@ public class PhotoGalleryDTO implements Serializable {
 
 	
     public PhotoGalleryDTO(PhotoGallery dto) {
-		this.image=new String(Base64.decodeBase64(dto.getImage()));
+		//this.image=new String(Base64.decodeBase64(dto.getImage()));
+		this.image=dto.getImage();
 		this.latitude=dto.getLatitude();
 		this.longitude=dto.getLongitude();
 		this.pseudo=dto.getPseudo();

@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "photoGallery")
-public class PhotoGallery implements Serializable {
+public class PhotoGallery1 implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,20 +28,19 @@ public class PhotoGallery implements Serializable {
 
     @Column(name = "latitude")
     private Float latitude;
-    
-    @Column(name = "image", columnDefinition = "TEXT")
-    private String image;
-    
-    public PhotoGallery(PhotoGalleryDTO dto) {
-		//this.image=Base64.encodeBase64(dto.getImage().getBytes());
-		this.image=dto.getImage();
+
+    @Column(name = "image")
+    private byte[] image;
+
+    public PhotoGallery1(PhotoGalleryDTO dto) {
+		this.image=Base64.encodeBase64(dto.getImage().getBytes());
 		this.latitude=dto.getLatitude();
 		this.longitude=dto.getLongitude();
 		this.pseudo=dto.getPseudo();
 	}
 
 
-    public PhotoGallery() {
+    public PhotoGallery1() {
 	}
 
  
@@ -53,7 +52,7 @@ public class PhotoGallery implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PhotoGallery livre = (PhotoGallery) o;
+        PhotoGallery1 livre = (PhotoGallery1) o;
         if(livre.id == null || id == null) {
             return false;
         }
@@ -97,11 +96,11 @@ public class PhotoGallery implements Serializable {
 		this.latitude = latitude;
 	}
 
-	public String getImage() {
+	public byte[] getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 
