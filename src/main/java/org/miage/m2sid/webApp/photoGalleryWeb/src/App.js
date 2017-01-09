@@ -29,26 +29,6 @@ class App extends Component {
 			          console.error(this.props.source, status, err.toString());
 			        }
 			      });
-			    
-			    var json= JSON.stringify({"pseudo":"yolo","longitude":12.5,"latitude":45.6,"image":"bobloblboblbobloblboblbo"});
-			    $.ajax({
-			        url: this.props.source,
-			        type:"POST",
-			        headers: {
-	                    'Access-Control-Allow-Origin': '*'
-	                },
-			        data:json,
-			        dataType: 'json',
-			        contentType: "application/json",
-			      //  cache: false,
-			      
-			        success: function(result) {
-			          th.setState({photos: result}); // Notice this
-			        },
-			        error: function(xhr, status, err) {
-			          console.error(this.props.source, status, err.toString());
-			        }
-			      });
 		  }
 		  
 		  componentWillUnmount() {
@@ -60,7 +40,6 @@ class App extends Component {
 			    		<div className="row">
 			    		
 			        {this.state.photos.map(function(photo) {
-			        	photo.image="data:image/jpeg;base64,"+photo.image;
 			          return (
 			        		  <div className="col-sm-6 col-md-4" key={photo.id}>
 			        		    <div className="thumbnail">

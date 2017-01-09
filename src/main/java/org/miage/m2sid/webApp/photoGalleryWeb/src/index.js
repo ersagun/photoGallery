@@ -11,6 +11,6 @@ ReactDOM.render(
 ); **/
 
 ReactDOM.render(
-		<App source="https://ersagun.ga/photoGallery/api/photoGallery" />,
+		<App source="http://10.10.182.36:8080//api/photoGallery" />,
 				document.getElementById('root')
 				);
